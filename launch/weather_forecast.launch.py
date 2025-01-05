@@ -9,7 +9,7 @@ def generate_launch_description():
             name='weather_forecast_node',
             output='screen',
             parameters=[
-                {'config_file': 'install/robosysasgmt2/share/robosysasgmt2/config/config.yaml'}
+                {'config_file': '/home/kei1ro/ros2_ws/install/robosysasgmt2/share/robosysasgmt2/config/config.yaml'}
             ]
         )
     ])

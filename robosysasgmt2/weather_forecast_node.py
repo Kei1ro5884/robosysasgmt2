@@ -5,14 +5,17 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
 import requests
-import yaml
+import yml
 import os
 
 class WeatherForecastNode(Node):
     def __init__(self):
         super().__init__('weather_forecast_node')
         
-        self.config = self.load_config("config.yaml")
+        self.config = self.load_config(
+    os.path.join(self.get_parameter("config_file").get_parameter_value().string_value)
+)
+
         self.api_key = self.config.get('api_key', None)
         self.city = self.config.get('city', 'Tokyo')
 
@@ -28,12 +31,12 @@ class WeatherForecastNode(Node):
     def load_config(self, file_path):
         try:
             with open(file_path, "r") as file:
-                return yaml.safe_load(file)
+                return yml.safe_load(file)
         except FileNotFoundError:
             self.get_logger().error(f"Configuration file {file_path} not found.")
             rclpy.shutdown()
             return {}
-        except yaml.YAMLError as e:
+        except yml.YMLError as e:
             self.get_logger().error(f"Error parsing configuration file: {e}")
             rclpy.shutdown()
             return {}
