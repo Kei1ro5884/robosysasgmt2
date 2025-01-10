@@ -54,6 +54,7 @@ def main(args=None):
     rclpy.init(args=args)
     node = WeatherForecastNode()
     rclpy.spin(node)
+    rclpy.shutdown()
 
 
 if __name__ == "__main__":
