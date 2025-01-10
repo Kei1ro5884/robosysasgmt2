@@ -1,16 +1,13 @@
-from launch import LaunchDescription
-from launch_ros.actions import Node
+import launch
+import launch.actions
+import launch.substitutions
+import launch_ros.action
 
 def generate_launch_description():
-    return LaunchDescription([
-        Node(
+    weather_forecast_node = launch_ros.actions.Node(
             package='robosysasgmt2',
             executable='weather_forecast_node',
-            name='weather_forecast_node',
             output='screen',
-            parameters=[
-                {'config_file': '/home/kei1ro/ros2_ws/src/robosysasgmt2/config/config.yaml'}
-            ]
-        )
-    ])
+        ),
+    return launch.LaunchDescription([weather_forecast_node])
 
