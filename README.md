@@ -1,6 +1,8 @@
 # robosysasgmt2
 このパッケージは、OpenWeatherMapのAPIを使用して特定の都市の天気情報を取得し、配信するノードを含むROS2のパッケージです。
 
+[![test](https://github.com/Kei1ro5884/robosysasgmt2/actions/workflows/test.yml/badge.svg)](https://github.com/Kei1ro5884/robosysasgmt2/actions/workflows/test.yml)
+
 ## テスト環境
 - Ubuntu 22.04 LTS
 
