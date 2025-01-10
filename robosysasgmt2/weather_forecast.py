@@ -5,7 +5,8 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
 import requests
-import json
+import yaml
+import os
 
 
 class WeatherForecastNode(Node):
@@ -13,8 +14,18 @@ class WeatherForecastNode(Node):
         super().__init__("weather_forecast")
         self.publisher_ = self.create_publisher(String, "weather_forecast", 10)
         self.timer = self.create_timer(60.0, self.publish_weather_forecast)
-        self.api_key = "2fe2d9dad7b8ba0de0b8e5fa86cb2aaf"
-        self.city_name = "Tokyo"
+        
+        config_file_path = os.path.join(
+            os.getenv('AMENT_PREFIX_PATH', ''),
+            'share', 'robosysasgmt2', 'config', 'config.yml'
+        )
+        
+        with open(config_file_path, "r") as file:
+            config = yaml.safe_load(file)
+        
+        self.api_key = config["weather"]["api_key"]
+        self.city_name = config["weather"]["city_name"]
+        
         self.get_logger().info("WeatherForecastNode has been started.")
 
     def get_weather_forecast(self):
@@ -43,7 +54,6 @@ def main(args=None):
     rclpy.init(args=args)
     node = WeatherForecastNode()
     rclpy.spin(node)
-
 
 
 if __name__ == "__main__":
