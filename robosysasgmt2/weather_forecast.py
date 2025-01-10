@@ -49,12 +49,11 @@ class WeatherForecastNode(Node):
         self.publisher_.publish(msg)
         self.get_logger().info(f"Published: {msg.data}")
 
-
 def main(args=None):
     rclpy.init(args=args)
     node = WeatherForecastNode()
     rclpy.spin(node)
-    rclpy.shutdown()
+
 
 
 if __name__ == "__main__":

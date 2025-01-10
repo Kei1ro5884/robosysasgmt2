@@ -53,7 +53,7 @@ data: City: Tokyo, Weather: clear sky, Temp: 3.7°C
 ```
 
 ## APIの著作権
-- このパッケージは [OpenWeatherMap API](https://openweathermap.org/api) を利用しています。
+- このパッケージは [OpenWeatherMap](https://openweathermap.org/api) を利用しています。
 - APIキーの取得には、OpenWeatherMapのアカウント作成および無料プランへの登録が必要です。
 
 ## ライセンス
