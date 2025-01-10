@@ -2,6 +2,6 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 weather:
-  api_key: "2fe2d9dad7b8ba0de0b8e5fa86cb2aaf"
+  api_key: "your_api_key_here"
   city_name: "Tokyo"
 

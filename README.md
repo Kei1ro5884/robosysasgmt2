@@ -21,6 +21,12 @@ OpenWeatherMapのAPIを使用して、指定した都市の天気情報を取得
 - 役割: 現在の天気情報を文字列形式で送信します。
 
 ## 実行方法
+config/config.yml ファイルに、OpenWeatherMapのAPIキーと都市名を設定します。
+```
+weather:
+     api_key: "your_api_key_here"
+     city_name: "Tokyo"
+```
 以下のコマンドでノードを実行できます。
 ```
 ros2 run robosysasgmt2 weather_forecast
